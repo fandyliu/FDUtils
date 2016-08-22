@@ -8,12 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		D7881FCB1D6AA67400C25210 /* FDUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FCA1D6AA67400C25210 /* FDUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7881FDD1D6AAA1000C25210 /* FDEncryptionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FDB1D6AAA1000C25210 /* FDEncryptionManager.h */; };
+		D7881FDE1D6AAA1000C25210 /* FDEncryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FDC1D6AAA1000C25210 /* FDEncryptionManager.m */; };
+		D7881FE51D6AADF200C25210 /* FDFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FE01D6AADF200C25210 /* FDFileManager.h */; };
+		D7881FE61D6AADF200C25210 /* FDFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FE11D6AADF200C25210 /* FDFileManager.m */; };
+		D7881FE71D6AADF200C25210 /* FDPhotosManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FE31D6AADF200C25210 /* FDPhotosManager.h */; };
+		D7881FE81D6AADF200C25210 /* FDPhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FE41D6AADF200C25210 /* FDPhotosManager.m */; };
+		D7881FF31D6AB0DE00C25210 /* FDRSACryptionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FF11D6AB0DE00C25210 /* FDRSACryptionManager.h */; };
+		D7881FF41D6AB0DE00C25210 /* FDRSACryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FF21D6AB0DE00C25210 /* FDRSACryptionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D7881FC71D6AA67400C25210 /* FDUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7881FCA1D6AA67400C25210 /* FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDUtils.h; sourceTree = "<group>"; };
-		D7881FCC1D6AA67400C25210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7881FD81D6AA97500C25210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7881FDB1D6AAA1000C25210 /* FDEncryptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDEncryptionManager.h; sourceTree = "<group>"; };
+		D7881FDC1D6AAA1000C25210 /* FDEncryptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDEncryptionManager.m; sourceTree = "<group>"; };
+		D7881FE01D6AADF200C25210 /* FDFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFileManager.h; sourceTree = "<group>"; };
+		D7881FE11D6AADF200C25210 /* FDFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFileManager.m; sourceTree = "<group>"; };
+		D7881FE31D6AADF200C25210 /* FDPhotosManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDPhotosManager.h; sourceTree = "<group>"; };
+		D7881FE41D6AADF200C25210 /* FDPhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDPhotosManager.m; sourceTree = "<group>"; };
+		D7881FF11D6AB0DE00C25210 /* FDRSACryptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDRSACryptionManager.h; sourceTree = "<group>"; };
+		D7881FF21D6AB0DE00C25210 /* FDRSACryptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDRSACryptionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				D7881FCA1D6AA67400C25210 /* FDUtils.h */,
+				D7881FDF1D6AADF200C25210 /* FDFileManager */,
+				D7881FE21D6AADF200C25210 /* FDPhotosManager */,
+				D7881FDA1D6AA9E000C25210 /* FDEncryptionManager */,
 			);
 			path = FDUtils;
 			sourceTree = "<group>";
@@ -55,10 +74,39 @@
 		D7881FD21D6AA6A100C25210 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
-				D7881FCC1D6AA67400C25210 /* Info.plist */,
+				D7881FD81D6AA97500C25210 /* Info.plist */,
 			);
 			name = "Supporting File";
 			path = FDUtils;
+			sourceTree = "<group>";
+		};
+		D7881FDA1D6AA9E000C25210 /* FDEncryptionManager */ = {
+			isa = PBXGroup;
+			children = (
+				D7881FDB1D6AAA1000C25210 /* FDEncryptionManager.h */,
+				D7881FDC1D6AAA1000C25210 /* FDEncryptionManager.m */,
+				D7881FF11D6AB0DE00C25210 /* FDRSACryptionManager.h */,
+				D7881FF21D6AB0DE00C25210 /* FDRSACryptionManager.m */,
+			);
+			path = FDEncryptionManager;
+			sourceTree = "<group>";
+		};
+		D7881FDF1D6AADF200C25210 /* FDFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D7881FE01D6AADF200C25210 /* FDFileManager.h */,
+				D7881FE11D6AADF200C25210 /* FDFileManager.m */,
+			);
+			path = FDFileManager;
+			sourceTree = "<group>";
+		};
+		D7881FE21D6AADF200C25210 /* FDPhotosManager */ = {
+			isa = PBXGroup;
+			children = (
+				D7881FE31D6AADF200C25210 /* FDPhotosManager.h */,
+				D7881FE41D6AADF200C25210 /* FDPhotosManager.m */,
+			);
+			path = FDPhotosManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,7 +116,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7881FF31D6AB0DE00C25210 /* FDRSACryptionManager.h in Headers */,
 				D7881FCB1D6AA67400C25210 /* FDUtils.h in Headers */,
+				D7881FE71D6AADF200C25210 /* FDPhotosManager.h in Headers */,
+				D7881FE51D6AADF200C25210 /* FDFileManager.h in Headers */,
+				D7881FDD1D6AAA1000C25210 /* FDEncryptionManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +151,7 @@
 		D7881FBE1D6AA67400C25210 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FD;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = fandy;
 				TargetAttributes = {
@@ -139,6 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7881FF41D6AB0DE00C25210 /* FDRSACryptionManager.m in Sources */,
+				D7881FDE1D6AAA1000C25210 /* FDEncryptionManager.m in Sources */,
+				D7881FE81D6AADF200C25210 /* FDPhotosManager.m in Sources */,
+				D7881FE61D6AADF200C25210 /* FDFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

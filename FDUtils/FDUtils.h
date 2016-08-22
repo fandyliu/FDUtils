@@ -8,12 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for FDUtils.
+#import "FDFileManager.h"
+
 FOUNDATION_EXPORT double FDUtilsVersionNumber;
 
-//! Project version string for FDUtils.
 FOUNDATION_EXPORT const unsigned char FDUtilsVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <FDUtils/PublicHeader.h>
+
+#if __has_include(<FDUtils/FDUtils.h>)
+
+
+#import <FDUtils/FDPhotosManager.h>
+#import <FDUtils/FDFileManager.h>
+#import <FDUtils/FDEncryptionManager.h>
+#import <FDUtils/FDRSACryptionManager.h>
+#import <FDUtils/<#name#>>
+
+
+#else
+
+#import "FDPhotosManager.h"
+#import "FDFileManager.h"
+#import "FDEncryptionManager.h"
+#import "FDRSACryptionManager.h"
+
+#endif // FDUtils
+
+
 
 
