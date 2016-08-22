@@ -22,7 +22,6 @@ FOUNDATION_EXPORT const unsigned char FDUtilsVersionString[];
 #import <FDUtils/FDFileManager.h>
 #import <FDUtils/FDEncryptionManager.h>
 #import <FDUtils/FDRSACryptionManager.h>
-#import <FDUtils/<#name#>>
 
 
 #else
