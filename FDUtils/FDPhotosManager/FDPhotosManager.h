@@ -3,13 +3,21 @@
 //  FDExtension
 //
 //  Created by QianTuFD on 16/8/9.
-//  Copyright © 2016年 QianTuFD. All rights reserved.
+//  Copyright © 2016年 fandy. All rights reserved.
 //
+/*
+ FDPhotosManager 对Photos进行管理封装
+ 系统相册管理
+ 1. 判断是否有访问相册的权限,根据不同权限执行不同的回掉
+ 2. 将图片保存到自己命名的相册中(如果没有创建对应的相册)
+ 3. 通过相册名字获得相册改变请求(如果没有会创建一个并返回)
+ 4. 通过相册名字获得相册(如果没有返回nil)
+ */
 
 #import <UIKit/UIKit.h>
 @class PHAssetCollection, PHAssetCollectionChangeRequest;
 
-//系统相册管理
+
 @interface FDPhotosManager : NSObject
 
 
@@ -20,7 +28,7 @@
  *  @param authorizedHandler 授权回调
  *  @param deniedHandler     否认回调
  */
-+ (void)fd_authorizationStatusAuthorizedHandler:(void(^)())authorizedHandler deniedHandler:(void(^)())deniedHandler;
++ (void)authorizationStatusAuthorizedHandler:(void(^)())authorizedHandler deniedHandler:(void(^)())deniedHandler;
 
 /****************************处理图片保存权限****************************/
 
@@ -35,7 +43,7 @@
  *  @param albumName         相册名
  *  @param completionHandler 完成会掉;
  */
-+ (void)fd_saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
++ (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
 
 /**
  *  通过相册名字获得相册改变请求(如果没有会创建一个并返回)
@@ -44,7 +52,7 @@
  *
  *  @return 相册改变请求
  */
-+ (PHAssetCollectionChangeRequest *)fd_getAssetCollectionChangeRequestWithAlbum:(NSString *)albumName;
++ (PHAssetCollectionChangeRequest *)getAssetCollectionChangeRequestWithAlbum:(NSString *)albumName;
 
 /**
  *  通过相册名字获得相册(如果没有返回nil)
@@ -53,7 +61,7 @@
  *
  *  @return 相册
  */
-+ (PHAssetCollection *)fd_getAssetCollectionWithAlbum:(NSString *)albumName;
++ (PHAssetCollection *)getAssetCollectionWithAlbum:(NSString *)albumName;
 
 /****************************处理图片保存到系统相簿****************************/
 

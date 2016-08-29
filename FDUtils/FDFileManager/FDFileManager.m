@@ -3,24 +3,24 @@
 //  FDExtension
 //
 //  Created by QianTuFD on 16/8/8.
-//  Copyright © 2016年 QianTuFD. All rights reserved.
+//  Copyright © 2016年 fandy. All rights reserved.
 //
 
 #import "FDFileManager.h"
 
 @implementation FDFileManager
 
-+ (NSString *)fd_cacheDirectoryAppendingPathComponent:(NSString *)str {
++ (NSString *)cacheDirectoryAppendingPathComponent:(NSString *)str {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:str];
 }
 
-+ (NSString *)fd_documentDirectoryAppendingPathComponent:(NSString *)str {
++ (NSString *)documentDirectoryAppendingPathComponent:(NSString *)str {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:str];
 }
 
-+ (NSString *)fd_temporaryDirectoryAppendingPathComponent:(NSString *)str {
++ (NSString *)temporaryDirectoryAppendingPathComponent:(NSString *)str {
     NSString *dir = NSTemporaryDirectory();
     return [dir stringByAppendingPathComponent:str];
 }
@@ -30,7 +30,7 @@
  *  根据传进来的文件夹路径返回文件夹大小
  *
  */
-//+ (NSInteger)fd_getFileSizeOfDictionaryPath:(NSString *)dictionaryPath {
+//+ (NSInteger)getFileSizeOfDictionaryPath:(NSString *)dictionaryPath {
 //    
 //    NSFileManager *fileManager = [NSFileManager defaultManager];
 //    //判断是否存在
@@ -124,7 +124,7 @@
 
 
 
-+ (NSInteger)fd_getFileSizeOfDictionaryPath:(NSString *)dictionaryPath {
++ (NSInteger)getFileSizeOfDictionaryPath:(NSString *)dictionaryPath {
     // 计算self这个文件夹\文件的大小
     
     // 文件管理者
@@ -158,7 +158,7 @@
  *  移除文件夹路径全部文件
  *
  */
-+ (void)fd_removeAllFilesInDictionaryPath:(NSString *)dictionaryPath {
++ (void)removeAllFilesInDictionaryPath:(NSString *)dictionaryPath {
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     //判断是否存在
@@ -180,7 +180,7 @@
     
 }
 
-+ (NSString *)fd_getBriefSize:(NSInteger)size {
++ (NSString *)getBriefSize:(NSInteger)size {
     NSString *sizeStr = nil;
     if (size > 1000 * 1000) { // MB
         CGFloat sizeMB = size / 1000.0 / 1000.0;

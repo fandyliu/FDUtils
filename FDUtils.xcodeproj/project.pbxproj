@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D72A83A51D73C425002FFA4E /* FDTimerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D72A83A31D73C425002FFA4E /* FDTimerManager.h */; };
+		D72A83A61D73C425002FFA4E /* FDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D72A83A41D73C425002FFA4E /* FDTimerManager.m */; };
 		D7881FCB1D6AA67400C25210 /* FDUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FCA1D6AA67400C25210 /* FDUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7881FDD1D6AAA1000C25210 /* FDEncryptionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FDB1D6AAA1000C25210 /* FDEncryptionManager.h */; };
 		D7881FDE1D6AAA1000C25210 /* FDEncryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FDC1D6AAA1000C25210 /* FDEncryptionManager.m */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D72A83A31D73C425002FFA4E /* FDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTimerManager.h; sourceTree = "<group>"; };
+		D72A83A41D73C425002FFA4E /* FDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTimerManager.m; sourceTree = "<group>"; };
 		D7881FC71D6AA67400C25210 /* FDUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7881FCA1D6AA67400C25210 /* FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDUtils.h; sourceTree = "<group>"; };
 		D7881FD81D6AA97500C25210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D72A83A21D73C403002FFA4E /* FDTimerManager */ = {
+			isa = PBXGroup;
+			children = (
+				D72A83A31D73C425002FFA4E /* FDTimerManager.h */,
+				D72A83A41D73C425002FFA4E /* FDTimerManager.m */,
+			);
+			path = FDTimerManager;
+			sourceTree = "<group>";
+		};
 		D7881FBD1D6AA67400C25210 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				D7881FCA1D6AA67400C25210 /* FDUtils.h */,
+				D72A83A21D73C403002FFA4E /* FDTimerManager */,
 				D7881FDF1D6AADF200C25210 /* FDFileManager */,
 				D7881FE21D6AADF200C25210 /* FDPhotosManager */,
 				D7881FDA1D6AA9E000C25210 /* FDEncryptionManager */,
@@ -118,6 +132,7 @@
 			files = (
 				D7881FF31D6AB0DE00C25210 /* FDRSACryptionManager.h in Headers */,
 				D7881FCB1D6AA67400C25210 /* FDUtils.h in Headers */,
+				D72A83A51D73C425002FFA4E /* FDTimerManager.h in Headers */,
 				D7881FE71D6AADF200C25210 /* FDPhotosManager.h in Headers */,
 				D7881FE51D6AADF200C25210 /* FDFileManager.h in Headers */,
 				D7881FDD1D6AAA1000C25210 /* FDEncryptionManager.h in Headers */,
@@ -192,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72A83A61D73C425002FFA4E /* FDTimerManager.m in Sources */,
 				D7881FF41D6AB0DE00C25210 /* FDRSACryptionManager.m in Sources */,
 				D7881FDE1D6AAA1000C25210 /* FDEncryptionManager.m in Sources */,
 				D7881FE81D6AADF200C25210 /* FDPhotosManager.m in Sources */,
