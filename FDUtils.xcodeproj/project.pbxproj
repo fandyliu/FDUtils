@@ -18,6 +18,7 @@
 		D7881FE81D6AADF200C25210 /* FDPhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FE41D6AADF200C25210 /* FDPhotosManager.m */; };
 		D7881FF31D6AB0DE00C25210 /* FDRSACryptionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D7881FF11D6AB0DE00C25210 /* FDRSACryptionManager.h */; };
 		D7881FF41D6AB0DE00C25210 /* FDRSACryptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7881FF21D6AB0DE00C25210 /* FDRSACryptionManager.m */; };
+		D7E76B141D77C10200D99A79 /* FDSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = D7E76B131D77C10200D99A79 /* FDSingleton.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D7881FE41D6AADF200C25210 /* FDPhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDPhotosManager.m; sourceTree = "<group>"; };
 		D7881FF11D6AB0DE00C25210 /* FDRSACryptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDRSACryptionManager.h; sourceTree = "<group>"; };
 		D7881FF21D6AB0DE00C25210 /* FDRSACryptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDRSACryptionManager.m; sourceTree = "<group>"; };
+		D7E76B131D77C10200D99A79 /* FDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSingleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				D7881FCA1D6AA67400C25210 /* FDUtils.h */,
+				D7E76B121D77C10200D99A79 /* FDSingleton */,
 				D72A83A21D73C403002FFA4E /* FDTimerManager */,
 				D7881FDF1D6AADF200C25210 /* FDFileManager */,
 				D7881FE21D6AADF200C25210 /* FDPhotosManager */,
@@ -123,6 +126,14 @@
 			path = FDPhotosManager;
 			sourceTree = "<group>";
 		};
+		D7E76B121D77C10200D99A79 /* FDSingleton */ = {
+			isa = PBXGroup;
+			children = (
+				D7E76B131D77C10200D99A79 /* FDSingleton.h */,
+			);
+			path = FDSingleton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -133,6 +144,7 @@
 				D7881FF31D6AB0DE00C25210 /* FDRSACryptionManager.h in Headers */,
 				D7881FCB1D6AA67400C25210 /* FDUtils.h in Headers */,
 				D72A83A51D73C425002FFA4E /* FDTimerManager.h in Headers */,
+				D7E76B141D77C10200D99A79 /* FDSingleton.h in Headers */,
 				D7881FE71D6AADF200C25210 /* FDPhotosManager.h in Headers */,
 				D7881FE51D6AADF200C25210 /* FDFileManager.h in Headers */,
 				D7881FDD1D6AAA1000C25210 /* FDEncryptionManager.h in Headers */,
