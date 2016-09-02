@@ -1,0 +1,84 @@
+//
+//  FDPrefixHeader.pch
+//  FDUtils
+//
+//  Created by QianTuFD on 16/9/2.
+//  Copyright © 2016年 fandy. All rights reserved.
+//
+
+#ifndef FDPrefixHeader_pch
+#define FDPrefixHeader_pch
+
+
+#ifdef __OBJC__  // OC
+
+/************************************ 头文件 ************************************/
+// #import
+
+/************************************ 头文件 ************************************/
+
+
+/************************************ 宏定义 ************************************/
+/******** 版本适配 ********/
+#define isiOS(Version) [[UIDevice currentDevice].systemVersion floatValue] >= Version
+
+#define iPhone4x_3_5 ([UIScreen mainScreen].bounds.size.height == 480.0f)
+
+#define iPhone5x_4_0 ([UIScreen mainScreen].bounds.size.height == 568.0f)
+
+#define iPhone6_4_7 ([UIScreen mainScreen].bounds.size.height == 667.0f)
+
+#define iphone6Plus_5_5 ([UIScreen mainScreen].bounds.size.height == 736.0f || [UIScreen mainScreen].bounds.size.width == 414.0f)
+/******** 版本适配 ********/
+
+#define FDScreenBounds [UIScreen mainScreen].bounds
+#define FDScreenSize FDScreenbounds.size
+#define FDScreenHeight FDScreenSize.height
+#define FDScreenWidth FDScreenSize.width
+#define FDScreenScale [UIScreen mainScreen].scale
+
+
+#define FDWeakSelf  __weak typeof(self) weakSelf = self  ;
+#define FDStrongSelf  __strong typeof(weakSelf) strongSelf = weakSelf;
+
+// 根据标注稿等比计算对应的point值。标注稿宽度为??，所以 实际值 = 标注值 * 屏幕宽度 / 1080. 。
+// 以下三个宏是等价关系
+//#define PX_TO_SCREENWIDTH(x) ((x)*(CGRectGetWidth([UIScreen mainScreen].bounds) / 640))
+//#define PX_MARK_TO_REAL_SCREEN_SIZE(x) (PX_TO_SCREENWIDTH(x))
+//#define P2PSZ(x) (PX_MARK_TO_REAL_SCREEN_SIZE(x))
+
+// 标注稿宽度为?? 对应点 414×736;针对4s 缩小字体
+// #define AUTOSIZESCALEY(x)  ((x) * (SCREEN_HEIGHT >= 568.0 ? 1 : 1.16))
+
+
+
+/************************************ 宏定义 ************************************/
+
+/************************************ 颜色 ************************************/
+
+#define FDColorWithRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+#define FDRandomColor FDColorWithRGBA(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
+
+
+
+/************************************ 颜色 ************************************/
+
+/************************************ Debug or Release ************************************/
+#ifdef DEBUG  // Debug
+#define FDLog(xx, ...)   NSLog(@"\n 🍎 类名与方法名: %s (在第%d行) \n 🍏 " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define IsProduct 0
+
+#else  // Release
+#define FDLog(xx, ...)  ((void)0)
+#define NSLog(xx, ...)  ((void)0)
+#define IsProduct 1
+#endif
+
+/************************************ Debug or Release ************************************/
+
+
+#endif  // __OBJC__
+
+
+#endif /* FDPrefixHeader_pch */

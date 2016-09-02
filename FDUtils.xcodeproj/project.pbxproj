@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		D72A83A31D73C425002FFA4E /* FDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTimerManager.h; sourceTree = "<group>"; };
 		D72A83A41D73C425002FFA4E /* FDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTimerManager.m; sourceTree = "<group>"; };
+		D76DED8E1D79262900426E65 /* FDPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPrefixHeader.pch; sourceTree = "<group>"; };
 		D7881FC71D6AA67400C25210 /* FDUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7881FCA1D6AA67400C25210 /* FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDUtils.h; sourceTree = "<group>"; };
 		D7881FD81D6AA97500C25210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				D7881FCA1D6AA67400C25210 /* FDUtils.h */,
+				D76DED8E1D79262900426E65 /* FDPrefixHeader.pch */,
 				D7E76B121D77C10200D99A79 /* FDSingleton */,
 				D72A83A21D73C403002FFA4E /* FDTimerManager */,
 				D7881FDF1D6AADF200C25210 /* FDFileManager */,
