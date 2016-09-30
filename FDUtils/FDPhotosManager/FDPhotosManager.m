@@ -12,6 +12,7 @@
 @implementation FDPhotosManager
 
 
+#pragma mark - 授权
 + (void)authorizationStatusAuthorizedHandler:(void(^)())authorizedHandler deniedHandler:(void(^)())deniedHandler {
     PHAuthorizationStatus authorizationStatus = [PHPhotoLibrary authorizationStatus];
     if (authorizationStatus == PHAuthorizationStatusNotDetermined) {
@@ -33,6 +34,8 @@
     }
 }
 
+
+#pragma mark - 图片
 // 将图片保存到相册中(如果没有创建对应的相册)
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
     PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
@@ -49,6 +52,7 @@
     } completionHandler:completionHandler];
 }
 
+// 将路径下的图片保存到相册中(如果没有创建对应的相册)
 + (void)saveImagePath:(NSString *)imagePath toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
     PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
     
@@ -64,6 +68,58 @@
         
     } completionHandler:completionHandler];
 }
+
+// 将图片数组保存到相册中(如果没有创建对应的相册).要保存的照片数组(子元素只能为url urlstr 或者 UIImage类型)
++ (void)saveImages:(NSArray *)images toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
+    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [photoLibrary performChanges:^{
+        // 获取相册改变请求
+        PHAssetCollectionChangeRequest *albumChangeRequest = [self getAssetCollectionChangeRequestWithAlbum:albumName];
+        
+        [albumChangeRequest addAssets:[self getAssets:images isImage:YES]];
+        
+    } completionHandler:completionHandler];
+}
+
+// 将图片数组保存到相册中(如果没有创建对应的相册)
++ (NSArray *)getAssets:(NSArray *)array isImage:(BOOL)isImage{
+    NSMutableArray *assets = [NSMutableArray array];
+
+    
+    for (id image in array) {
+        PHAssetChangeRequest *assetChangeRequest = nil;
+        if (isImage) {
+            if ([image isKindOfClass:[NSURL class]]) {
+                assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:image];
+            }else if ([image isKindOfClass:[NSString class]]) {
+                assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:[NSURL fileURLWithPath:image]];
+            }else if([image isKindOfClass:[UIImage class]]){
+                assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+            }
+        }else {
+            //这里image 是video
+            if ([image isKindOfClass:[NSURL class]]) {
+                assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:image];
+            }else if ([image isKindOfClass:[NSString class]]) {
+                assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:[NSURL fileURLWithPath:image]];
+            }
+        }
+        
+        if (assetChangeRequest == nil) {
+            NSString *reason = [NSString stringWithFormat:@"\n 🍎 类名与方法名: %s (在第%d行) \n 🍏 传入images数组有误,只能传入url urlstr 或者 UIImage类型", __PRETTY_FUNCTION__, __LINE__];
+            NSException *excption = [NSException exceptionWithName:@"路径错误" reason:reason userInfo:nil];
+            [excption raise];
+            return nil;
+        }
+        PHObjectPlaceholder *assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset;
+        
+        [assets addObject:assetPlaceholder];
+
+    }
+    return assets;
+}
+
 
 
 // 通过相册名字获得相册改变请求(如果没有会创建一个并返回)
@@ -91,5 +147,38 @@
     }
     return nil;
 }
+
+#pragma mark - 视频
+
++ (void)saveVideoPath:(NSString *)videoPath toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
+    
+    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [photoLibrary performChanges:^{
+        // 获取相册改变请求
+        PHAssetCollectionChangeRequest *albumChangeRequest = [self getAssetCollectionChangeRequestWithAlbum:albumName];
+        // 获取相片请求
+        NSURL *url = [NSURL fileURLWithPath:videoPath];
+        PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:url];
+        
+        PHObjectPlaceholder *assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset;
+        [albumChangeRequest addAssets:@[assetPlaceholder]];
+        
+    } completionHandler:completionHandler];
+}
+
++ (void)saveVideos:(NSArray *)videos toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
+    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [photoLibrary performChanges:^{
+        // 获取相册改变请求
+        PHAssetCollectionChangeRequest *albumChangeRequest = [self getAssetCollectionChangeRequestWithAlbum:albumName];
+        
+        [albumChangeRequest addAssets:[self getAssets:videos isImage:NO]];
+        
+    } completionHandler:completionHandler];
+}
+
+
 
 @end
