@@ -10,7 +10,7 @@
  系统相册管理
  1. 判断是否有访问相册的权限,根据不同权限执行不同的回掉
  2. 将图片保存到自己命名的相册中(如果没有创建对应的相册)
- 3. 通过相册名字获得相册改变请求(如果没有会创建一个并返回)
+ 3. 将路径下的图片保存到相册中(如果没有创建对应的相册)
  4. 通过相册名字获得相册(如果没有返回nil)
  */
 
@@ -41,25 +41,27 @@
  *
  *  @param image             要保存的照片
  *  @param albumName         相册名
- *  @param completionHandler 完成会掉;
+ *  @param completionHandler 完成回掉(相册改变成功否);
  */
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
 
+
 /**
- *  通过相册名字获得相册改变请求(如果没有会创建一个并返回)
+ *  将路径下的图片保存到相册中(如果没有创建对应的相册)
  *
- *  @param albumName 相册名
- *
- *  @return 相册改变请求
+ *  @param image             要保存的照片
+ *  @param albumName         相册名
+ *  @param completionHandler 完成回掉(相册改变成功否);
  */
-+ (PHAssetCollectionChangeRequest *)getAssetCollectionChangeRequestWithAlbum:(NSString *)albumName;
++ (void)saveImagePath:(NSString *)imagePath toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
+
 
 /**
  *  通过相册名字获得相册(如果没有返回nil)
  *
  *  @param albumName 相册名
  *
- *  @return 相册
+ *  @return          相册
  */
 + (PHAssetCollection *)getAssetCollectionWithAlbum:(NSString *)albumName;
 

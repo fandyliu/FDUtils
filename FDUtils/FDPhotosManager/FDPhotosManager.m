@@ -33,14 +33,14 @@
     }
 }
 
-//将图片保存到相册中(如果没有创建对应的相册)
+// 将图片保存到相册中(如果没有创建对应的相册)
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
     PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
     
     [photoLibrary performChanges:^{
-        //获取相册改变请求
+        // 获取相册改变请求
         PHAssetCollectionChangeRequest *albumChangeRequest = [self getAssetCollectionChangeRequestWithAlbum:albumName];
-        //获取相片请求
+        // 获取相片请求
         PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
         
         PHObjectPlaceholder *assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset;
@@ -49,7 +49,24 @@
     } completionHandler:completionHandler];
 }
 
-//通过相册名字获得相册改变请求(如果没有会创建一个并返回)
++ (void)saveImagePath:(NSString *)imagePath toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
+    PHPhotoLibrary *photoLibrary = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [photoLibrary performChanges:^{
+        // 获取相册改变请求
+        PHAssetCollectionChangeRequest *albumChangeRequest = [self getAssetCollectionChangeRequestWithAlbum:albumName];
+        // 获取相片请求
+        NSURL *url = [NSURL fileURLWithPath:imagePath];
+        PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:url];
+        
+        PHObjectPlaceholder *assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset;
+        [albumChangeRequest addAssets:@[assetPlaceholder]];
+        
+    } completionHandler:completionHandler];
+}
+
+
+// 通过相册名字获得相册改变请求(如果没有会创建一个并返回)
 + (PHAssetCollectionChangeRequest *)getAssetCollectionChangeRequestWithAlbum:(NSString *)albumName {
     PHAssetCollection *album = [self getAssetCollectionWithAlbum:albumName];
     PHAssetCollectionChangeRequest *albumChangeRequest;
@@ -62,7 +79,7 @@
 }
 
 
-//通过相册名字获得相册(如果没有返回nil)
+// 通过相册名字获得相册(如果没有返回nil)
 + (PHAssetCollection *)getAssetCollectionWithAlbum:(NSString *)albumName {
     
     PHFetchResult *albumsFetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
@@ -74,4 +91,5 @@
     }
     return nil;
 }
+
 @end

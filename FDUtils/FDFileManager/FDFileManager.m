@@ -189,7 +189,7 @@
         CGFloat sizeKB = size / 1000.0;
         sizeStr = [NSString stringWithFormat:@"%.1fKB",sizeKB];
     } else if (size > 0) { // B
-        sizeStr = [NSString stringWithFormat:@"%ldB",size];
+        sizeStr = [NSString stringWithFormat:@"%zdB",size];
     }
     return sizeStr;
 }

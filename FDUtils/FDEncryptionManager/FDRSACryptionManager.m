@@ -88,7 +88,7 @@ static const uint8_t privateKeyIdentifier[]		= kPrivateKeyTag;
                                 &cipherBufferSize
                                 );
     
-    NSAssert(sanityCheck == noErr, @"加密错误，OSStatus == %d", sanityCheck);
+    NSAssert(sanityCheck == noErr, @"加密错误，OSStatus == %d", (int)sanityCheck);
     
     // 生成密文数据
     cipher = [NSData dataWithBytes:(const void *)cipherBuffer length:(NSUInteger)cipherBufferSize];

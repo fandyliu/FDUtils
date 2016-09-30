@@ -17,6 +17,8 @@
 
 @interface FDTimerManager : NSObject
 
+
+
 + (void)startTimer:(NSTimeInterval)timeInterval repeat:(BOOL)repeat firedHandle:(void(^)())fireHandle;
 
 + (void)stopTimer;

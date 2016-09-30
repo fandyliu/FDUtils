@@ -32,7 +32,7 @@
 /******** 版本适配 ********/
 
 #define FDScreenBounds [UIScreen mainScreen].bounds
-#define FDScreenSize FDScreenbounds.size
+#define FDScreenSize FDScreenBounds.size
 #define FDScreenHeight FDScreenSize.height
 #define FDScreenWidth FDScreenSize.width
 #define FDScreenScale [UIScreen mainScreen].scale
@@ -56,11 +56,13 @@
 
 /************************************ 颜色 ************************************/
 
-#define FDColorWithRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define FDColorWithRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define FDColorWithRGB(r,g,b) FDColorWithRGBA(r,g,b,1)
 
 #define FDRandomColor FDColorWithRGBA(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1)
 
-
+#define FDHexColor(colorValue) [UIColor colorWithHexColorString:@#colorValue]
+#define FDHexColorAlpha(colorValue,a) [UIColor colorWithHexColorString:@#colorValue alpha:a];
 
 /************************************ 颜色 ************************************/
 
