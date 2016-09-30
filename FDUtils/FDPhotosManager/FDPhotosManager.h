@@ -99,4 +99,7 @@
 
 /**************************** 处理视频保存到系统相簿 ****************************/
 
++ (void)deleteAssetBylocalIdentifier:(NSString *)localIdentifier fromAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
+
+
 @end

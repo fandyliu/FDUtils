@@ -21,7 +21,7 @@
                 if(authorizedHandler) {
                     authorizedHandler();
                 }
-          }
+            }
         }];
     } else if (authorizationStatus == PHAuthorizationStatusAuthorized) {
         if(authorizedHandler) {
@@ -85,7 +85,7 @@
 // 将图片数组保存到相册中(如果没有创建对应的相册)
 + (NSArray *)getAssets:(NSArray *)array isImage:(BOOL)isImage{
     NSMutableArray *assets = [NSMutableArray array];
-
+    
     
     for (id image in array) {
         PHAssetChangeRequest *assetChangeRequest = nil;
@@ -115,7 +115,7 @@
         PHObjectPlaceholder *assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset;
         
         [assets addObject:assetPlaceholder];
-
+        
     }
     return assets;
 }
@@ -179,6 +179,17 @@
     } completionHandler:completionHandler];
 }
 
-
-
+#pragma mark - 删除
++ (void)deleteAssetBylocalIdentifier:(NSString *)localIdentifier fromAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler {
+    PHAssetCollection *album = [self getAssetCollectionWithAlbum:albumName];
+    PHFetchResult *assetResult = [PHAsset fetchAssetsInAssetCollection:album options: nil];
+    
+    [assetResult enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([localIdentifier isEqualToString:asset.localIdentifier]) {
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                [PHAssetChangeRequest deleteAssets:@[asset]];
+            } completionHandler:completionHandler];
+        }
+    }];
+}
 @end
