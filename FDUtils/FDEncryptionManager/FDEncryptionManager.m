@@ -2,8 +2,8 @@
 //  FDEncryptionManager.m
 //  FDUtils
 //
-//  Created by QianTuFD on 16/8/22.
-//  Copyright © 2016年 fandy. All rights reserved.
+//  Created by fandy on 15/8/22.
+//  Copyright © 2015年 fandy. All rights reserved.
 //
 
 #import "FDEncryptionManager.h"

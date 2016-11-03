@@ -2,8 +2,8 @@
 //  FDUtils.h
 //  FDUtils
 //
-//  Created by QianTuFD on 16/8/22.
-//  Copyright © 2016年 fandy. All rights reserved.
+//  Created by fandy on 15/8/22.
+//  Copyright © 2015年 fandy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -22,6 +22,8 @@ FOUNDATION_EXPORT const unsigned char FDUtilsVersionString[];
 #import <FDUtils/FDFileManager.h>
 #import <FDUtils/FDEncryptionManager.h>
 #import <FDUtils/FDRSACryptionManager.h>
+#import <FDUtils/FDTripleDESMananger.h>
+
 
 
 #else
@@ -30,6 +32,7 @@ FOUNDATION_EXPORT const unsigned char FDUtilsVersionString[];
 #import "FDFileManager.h"
 #import "FDEncryptionManager.h"
 #import "FDRSACryptionManager.h"
+#import "FDTripleDESMananger.h"
 
 #endif // FDUtils
 
