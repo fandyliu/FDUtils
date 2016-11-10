@@ -2,8 +2,8 @@
 //  FDFileManager.h
 //  FDExtension
 //
-//  Created by QianTuFD on 16/8/8.
-//  Copyright © 2016年 fandy. All rights reserved.
+//  Created by fandy on 15/8/8.
+//  Copyright © 2015年 fandy. All rights reserved.
 //
 /*
  FDFileManager 是对系统沙盒进行管理的工具类
