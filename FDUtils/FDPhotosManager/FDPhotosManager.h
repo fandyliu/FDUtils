@@ -78,18 +78,18 @@
 
 
 /**
- *  将路径下的图片保存到相册中(如果没有创建对应的相册)
+ *  将路径下的视频保存到相册中(如果没有创建对应的相册)
  *
- *  @param image             要保存的照片路径
+ *  @param image             要保存的视频路径
  *  @param albumName         相册名
  *  @param completionHandler 完成回掉(相册改变成功否);
  */
 + (void)saveVideoPath:(NSString *)videoPath toAlbum:(NSString *)albumName completionHandler:(void(^)(BOOL success, NSError * error))completionHandler;
 
 /**
- *  将图片数组保存到相册中(如果没有创建对应的相册).要保存的照片数组(子元素只能为url urlstr 或者 UIImage类型)
+ *  将视频数组保存到相册中(如果没有创建对应的相册).要保存的照片数组(子元素只能为url urlstr 或者 UIImage类型)
  *
- *  @param image             要保存的照片数组(子元素只能为url urlstr 或者 UIImage类型)
+ *  @param image             要保存的视频数组(子元素只能为url urlstr 或者 UIImage类型)
  *  @param albumName         相册名
  *  @param completionHandler 完成回掉(相册改变成功否);
  */
