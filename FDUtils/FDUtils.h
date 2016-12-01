@@ -25,7 +25,6 @@ FOUNDATION_EXPORT const unsigned char FDUtilsVersionString[];
 #import <FDUtils/FDTripleDESMananger.h>
 
 
-
 #else
 
 #import "FDPhotosManager.h"

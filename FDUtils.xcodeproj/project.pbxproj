@@ -35,6 +35,12 @@
 		D72A83A31D73C425002FFA4E /* FDTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTimerManager.h; sourceTree = "<group>"; };
 		D72A83A41D73C425002FFA4E /* FDTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTimerManager.m; sourceTree = "<group>"; };
 		D76DED8E1D79262900426E65 /* FDPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPrefixHeader.pch; sourceTree = "<group>"; };
+		D77ABBCA1DEFBD4800663342 /* FDPathMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPathMacros.h; sourceTree = "<group>"; };
+		D77ABBCB1DEFBD5E00663342 /* FDDimensMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDDimensMacros.h; sourceTree = "<group>"; };
+		D77ABBCC1DEFBDDD00663342 /* FDUtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDUtilsMacros.h; sourceTree = "<group>"; };
+		D77ABBCD1DEFC82D00663342 /* FDNotificationMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDNotificationMacros.h; sourceTree = "<group>"; };
+		D77ABBCE1DEFC85800663342 /* FDAPIStringMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAPIStringMacros.h; sourceTree = "<group>"; };
+		D77ABBD11DEFC96700663342 /* FDMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMacros.h; sourceTree = "<group>"; };
 		D7881FC71D6AA67400C25210 /* FDUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7881FCA1D6AA67400C25210 /* FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDUtils.h; sourceTree = "<group>"; };
 		D7881FD81D6AA97500C25210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +85,19 @@
 			path = FDTimerManager;
 			sourceTree = "<group>";
 		};
+		D77ABBC81DEFBCA100663342 /* FDMacros */ = {
+			isa = PBXGroup;
+			children = (
+				D77ABBD11DEFC96700663342 /* FDMacros.h */,
+				D77ABBCB1DEFBD5E00663342 /* FDDimensMacros.h */,
+				D77ABBCA1DEFBD4800663342 /* FDPathMacros.h */,
+				D77ABBCC1DEFBDDD00663342 /* FDUtilsMacros.h */,
+				D77ABBCD1DEFC82D00663342 /* FDNotificationMacros.h */,
+				D77ABBCE1DEFC85800663342 /* FDAPIStringMacros.h */,
+			);
+			path = FDMacros;
+			sourceTree = "<group>";
+		};
 		D7881FBD1D6AA67400C25210 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +120,7 @@
 			children = (
 				D7881FCA1D6AA67400C25210 /* FDUtils.h */,
 				D76DED8E1D79262900426E65 /* FDPrefixHeader.pch */,
+				D77ABBC81DEFBCA100663342 /* FDMacros */,
 				D7E76B121D77C10200D99A79 /* FDSingleton */,
 				D72A83A21D73C403002FFA4E /* FDTimerManager */,
 				D7881FDF1D6AADF200C25210 /* FDFileManager */,
