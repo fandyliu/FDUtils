@@ -54,4 +54,5 @@ typedef NS_ENUM(NSUInteger, FDAlgorithm) {
  */
 - (NSString *)decryptString:(NSString *)string keyString:(NSString *)keyString iv:(NSData *)iv;
 
+
 @end
