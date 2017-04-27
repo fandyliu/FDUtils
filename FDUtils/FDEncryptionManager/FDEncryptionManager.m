@@ -24,7 +24,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[self alloc] init];
-        _instance.algorithm = kCCAlgorithmAES;
+        _instance.algorithm = FDAlgorithmAES;
     });
     
     return _instance;
@@ -41,6 +41,10 @@
             self.keySize = kCCKeySizeDES;
             self.blockSize = kCCBlockSizeDES;
             break;
+        case FDAlgorithm3DES:
+            self.keySize = kCCKeySize3DES;
+            self.blockSize = kCCBlockSize3DES;
+            break;
         default:
             break;
     }
@@ -51,12 +55,13 @@
 
 - (NSString *)encryptString:(NSString *)string keyString:(NSString *)keyString iv:(NSData *)iv
 {
-    
     // 设置秘钥
     NSData *keyData = [keyString dataUsingEncoding:NSUTF8StringEncoding];
     uint8_t cKey[self.keySize];
     bzero(cKey, sizeof(cKey));
     [keyData getBytes:cKey length:self.keySize];
+    
+    // const void *cKey = (const void *)[data bytes];
     
     // 设置iv
     uint8_t cIv[self.blockSize];

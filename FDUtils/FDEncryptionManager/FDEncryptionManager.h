@@ -7,17 +7,14 @@
 
 /*
  AES 和 DES 加密
- 
  */
-
-
-
 
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, FDAlgorithm) {
     FDAlgorithmAES,
-    FDAlgorithmDES
+    FDAlgorithmDES,
+    FDAlgorithm3DES,
 };
 
 @interface FDEncryptionManager : NSObject
